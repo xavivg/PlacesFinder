@@ -4,30 +4,54 @@ import java.util.Scanner;
 
 public class Application {
 
+    ArrayList<Place> places;
+
     protected void init() {
+
         try {
+
             System.out.println("Welcome to my app!");
+            int option = 0;
 
-            Menu menu = new Menu();
+            while (option != 3) {
+                option = Menu.showMenu();
+                checkOption(option);
+            }
 
-            checkoption(menu.showMenu());
-
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Algo salió mal...");
         }
     }
-    protected void checkoption(int option) {
-        switch (option){
+
+    protected void checkOption(int option) {
+
+        switch (option) {
+
             case 1:
                 System.out.println("Opcion 1, Cargar fichero");
-                loadFile();
+                places = loadFile();
                 break;
+
+            case 2:
+                System.out.println("Opcion 2, Estadísticas");
+                checkStatsOption(Menu.statsMenu());
+
+            case 3:
+                System.out.println("Hasta otra!");
         }
     }
-    protected ArrayList<Place> loadFile(){
 
-        ArrayList<Place> places = new ArrayList<>();
+    protected void checkStatsOption(int option) {
+
+        switch (option) {
+
+            case 1 :
+                Stats.showPlacesAlphabetically(places);
+
+        }
+    }
+
+    protected ArrayList<Place> loadFile() {
 
         try {
 
@@ -40,7 +64,6 @@ public class Application {
             if (extension == 1) places = FileManagement.readJson(file);
             else if (extension == 2) places = FileManagement.readCsv(file);
             else System.out.println("Error! Extensión no válida.");
-
 
         } catch (Exception e) {
             System.out.println("Error: " + e);
