@@ -7,26 +7,20 @@ public class Application {
     ArrayList<Place> places;
 
     protected void init() {
-
         try {
-
             System.out.println("Welcome to my app!");
-            int option = 0;
 
-            while (option != 3) {
-                option = Menu.showMenu();
-                checkOption(option);
-            }
+            Menu menu = new Menu();
 
-        } catch (Exception e) {
+            checkoption(menu.showMenu());
+
+        }
+        catch (Exception e) {
             System.out.println("Algo salió mal...");
         }
     }
-
-    protected void checkOption(int option) {
-
-        switch (option) {
-
+    protected void checkoption(int option) {
+        switch (option){
             case 1:
                 System.out.println("Opcion 1, Cargar fichero");
                 places = loadFile();
@@ -52,6 +46,8 @@ public class Application {
     }
 
     protected ArrayList<Place> loadFile() {
+
+        ArrayList<Place> places = new ArrayList<>();
 
         try {
 
