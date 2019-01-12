@@ -7,18 +7,23 @@ public class Application {
     ArrayList<Place> places;
 
     protected void init() {
+
         try {
+
             System.out.println("Welcome to my app!");
 
-            Menu menu = new Menu();
+            int option = 0;
 
-            checkoption(menu.showMenu());
+            while (option != 3) {
+                option = Menu.showMenu();
+                checkoption(option);
+            }
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Algo salió mal...");
         }
     }
+
     protected void checkoption(int option) {
         switch (option){
             case 1:
@@ -30,8 +35,6 @@ public class Application {
                 System.out.println("Opcion 2, Estadísticas");
                 checkStatsOption(Menu.statsMenu());
 
-            case 3:
-                System.out.println("Hasta otra!");
         }
     }
 
@@ -39,9 +42,11 @@ public class Application {
 
         switch (option) {
 
-            case 1 :
+            case 1:
                 Stats.showPlacesAlphabetically(places);
 
+            case 3:
+                Stats.typeMorePlacesOpen(places);
         }
     }
 

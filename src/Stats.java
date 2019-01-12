@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class Stats {
 
@@ -22,6 +20,50 @@ public class Stats {
             System.out.println("Tipo: " + p.getType());
             System.out.println("---------------------");
         }
-
     }
+
+    protected static void typeMorePlacesOpen(ArrayList<Place> places) {
+
+        Map<String, Integer> types = new HashMap<>();
+        types.put("store", 0);
+        types.put("museum", 0);
+        types.put("night_club", 0);
+        types.put("restaurant", 0);
+
+        for (Place p : places) {
+            if (p.isOpen() == true) types.put(p.getType(), types.get(p.getType()) + 1);
+        }
+
+        String type = "";
+        int max = 0;
+
+        if (types.get("store") > max) {
+            max = types.get("store");
+            type = "store";
+        }
+        if (types.get("museum") > max) {
+            max = types.get("museum");
+            type = "museum";
+        }
+        if (types.get("night_club") > max) {
+            max = types.get("night_club");
+            type = "night_club";
+        }
+        if (types.get("restaurant") > max) {
+            type = "restaurant";
+        }
+
+        System.out.println(type);
+    }
+
+    /*protected static void restaurantsPrice(ArrayList<Place> places) {
+
+        for (Place p : places) {
+            if (p.getClass() == Restaurant.class) {
+
+            }
+        }
+
+    }*/
+
 }

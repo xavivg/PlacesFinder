@@ -19,7 +19,10 @@ public class FileManagement {
     }
 
     public static ArrayList<Place> readJson(String file) {
+
+        System.out.println("Cargando fichero json...");
         ArrayList<Place> places = new ArrayList<>();
+
         try{
 
             FileReader reader = new FileReader("datasets/"+file);
@@ -70,7 +73,7 @@ public class FileManagement {
 
     public static ArrayList<Place> readCsv(String file) throws IOException {
 
-        System.out.println("Cargando fichero json...");
+        System.out.println("Cargando fichero csv...");
 
         FileReader fileReader = new FileReader(file);
         BufferedReader br = new BufferedReader(fileReader);
@@ -83,7 +86,7 @@ public class FileManagement {
             String[] parts = line.split(",");
 
             String name = parts[0];
-            boolean open_now = Boolean.getBoolean(parts[1]);
+            boolean open_now = Boolean.valueOf(parts[1]);
             String type = parts[2];
             String address = parts[3];
             double rating = Double.parseDouble(parts[4]);
