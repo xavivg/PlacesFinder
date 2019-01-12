@@ -5,41 +5,51 @@ import java.util.ArrayList;
 
 public class FileManagement {
 
-    public static void checkExtension(String name) throws IOException{
+    public static int checkExtension(String name) throws IOException {
 
         String[] parts = name.split("[.]");
 
-        if (parts[1].equals("json")) readJson(name);
-        else if (parts[1].equals("csv")) readCsv(name);
-        else System.out.println("Error! Extensión no válida");
+        if (parts[1].equals("json")) return 1;
+        else if (parts[1].equals("csv")) return 2;
+
+        return 0;
     }
 
-    public static ArrayList<Place> readJson(String fichero) {
+    public static ArrayList<Place> readJson(String file) {
         ArrayList<Place> places = new ArrayList<>();
         return places;
     }
 
     public static ArrayList<Place> readCsv(String file) throws IOException {
-        /*FileReader fileReader = new FileReader(fichero);
+
+        System.out.println("Cargando fichero json...");
+
+        FileReader fileReader = new FileReader(file);
         BufferedReader br = new BufferedReader(fileReader);
+        br.readLine(); //nos saltamos la primera linea
         String line;
-        ArrayList<Alumno> alumnos = new ArrayList<>();
+        ArrayList<Place> places = new ArrayList<>();
 
         while ((line = br.readLine()) != null) {
 
             String[] parts = line.split(",");
 
-            int id = Integer.parseInt(parts[0]);
-            String degree = parts[1];
-            String course = parts[2];
-            double mark = Double.parseDouble(parts[3]);
+            String name = parts[0];
+            boolean open_now = Boolean.getBoolean(parts[1]);
+            String type = parts[2];
+            String address = parts[3];
+            double rating = Double.parseDouble(parts[4]);
 
-            Alumno a = new Alumno(id, degree, course, mark);
-            alumnos.add(a);
+            if (type.equals("restaurant")) {
+                int price = Integer.parseInt(parts[5]);
+                Restaurant r = new Restaurant(address, name, rating, open_now, type, price);
+                places.add(r);
+            } else {
+                Place p = new Place(address, name, rating, open_now, type);
+                places.add(p);
+            }
         }
 
-        return alumnos;*/
-        ArrayList<Place> places = new ArrayList<>();
         return places;
     }
 }

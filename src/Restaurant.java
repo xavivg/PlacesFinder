@@ -5,8 +5,8 @@ public class Restaurant extends Place {
     public Restaurant() {
     }
 
-    public Restaurant(String address, String name, int rating, boolean open, int price) {
-        super(address, name, rating, open);
+    public Restaurant(String address, String name, double rating, boolean open, String type, int price) {
+        super(address, name, rating, open, type);
         this.price = price;
     }
 

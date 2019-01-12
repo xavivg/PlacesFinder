@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -34,7 +35,12 @@ public class Application {
             Scanner scanner = new Scanner(System.in);
             String file = scanner.nextLine();
 
-            FileManagement.checkExtension(file);
+            int extension = FileManagement.checkExtension(file);
+
+            if (extension == 1) places = FileManagement.readJson(file);
+            else if (extension == 2) places = FileManagement.readCsv(file);
+            else System.out.println("Error! Extensión no válida.");
+
 
         } catch (Exception e) {
             System.out.println("Error: " + e);

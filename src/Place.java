@@ -2,17 +2,19 @@ public class Place {
 
     private String address;
     private String name;
-    private int rating;
+    private double rating;
     private boolean open;
+    private String type;
 
     public Place() {
     }
 
-    public Place(String address, String name, int rating, boolean open) {
+    public Place(String address, String name, double rating, boolean open, String type) {
         this.address = address;
         this.name = name;
         this.rating = rating;
         this.open = open;
+        this.type = type;
     }
 
     public String getAddress() {
@@ -31,11 +33,11 @@ public class Place {
         this.name = name;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
@@ -45,5 +47,13 @@ public class Place {
 
     public void setOpen(boolean open) {
         this.open = open;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
