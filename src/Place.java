@@ -56,4 +56,8 @@ public class Place {
     public void setType(String type) {
         this.type = type;
     }
+
+    protected int getPrice() {
+        return 0;
+    }
 }

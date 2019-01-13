@@ -10,6 +10,7 @@ public class Restaurant extends Place {
         this.price = price;
     }
 
+    @Override
     public int getPrice() {
         return price;
     }

@@ -47,6 +47,9 @@ public class Application {
 
             case 3:
                 Stats.typeMorePlacesOpen(places);
+
+            case 6:
+                Stats.restaurantsPrice(places);
         }
     }
 

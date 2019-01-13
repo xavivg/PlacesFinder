@@ -56,14 +56,19 @@ public class Stats {
         System.out.println(type);
     }
 
-    /*protected static void restaurantsPrice(ArrayList<Place> places) {
+    protected static void restaurantsPrice(ArrayList<Place> places) {
+
+        int[] prices = {0,0,0,0};
 
         for (Place p : places) {
             if (p.getClass() == Restaurant.class) {
-
+                prices[p.getPrice() - 1] ++;
             }
         }
 
-    }*/
-
+        System.out.println("1 - Barato: " + prices[0]);
+        System.out.println("2 - Moderado: " + prices[1]);
+        System.out.println("3 - Caro: " + prices[2]);
+        System.out.println("4 - Muy caro: " + prices[3]);
+    }
 }
