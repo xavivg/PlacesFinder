@@ -67,7 +67,6 @@ public class Stats {
             System.out.println("Tipo: " + p.getType());
             System.out.println("---------------------");
         }
-        Place r = new Restaurant();
     }
     protected static void showBestPlaceAndTheWorst(ArrayList<Place> places) {
         Collections.sort(places, Comparator.comparing(Place::getRating).reversed());

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Application {
 
     ArrayList<Place> places;
+    Boolean fileLoaded = false;
 
     protected void init() {
         try {
@@ -27,11 +28,23 @@ public class Application {
             case 1:
                 System.out.println("Opcion 1, Cargar fichero");
                 places = loadFile();
+                if(places.isEmpty()){
+
+                    fileLoaded = false;
+                }
+                else{
+                    fileLoaded = true;
+                }
                 break;
 
             case 2:
-                System.out.println("Opcion 2, Estadísticas");
-                checkStatsOption(Menu.statsMenu());
+                if(fileLoaded){
+                    System.out.println("Opcion 2, Estadísticas");
+                    checkStatsOption(Menu.statsMenu());
+                }
+                else{
+                    System.out.println("No se pueden mostrar estadisticas sin cargar primero el archivo");
+                }
 
             case 3:
                 System.out.println("Hasta otra!");
@@ -66,21 +79,15 @@ public class Application {
 
         ArrayList<Place> places = new ArrayList<>();
 
-        try {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce el nombre del fichero: ");
+        String file = scanner.nextLine();
+        FileManagement fm = new FileManagement();
 
-            System.out.println("Introduce el nombre del fichero: ");
-            Scanner scanner = new Scanner(System.in);
-            String file = scanner.nextLine();
+        int extension = fm.checkExtension(file);
 
-            int extension = FileManagement.checkExtension(file);
-
-            if (extension == 1) places = FileManagement.readJson(file);
-            else if (extension == 2) places = FileManagement.readCsv(file);
-            else System.out.println("Error! Extensión no válida.");
-
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
-        }
+        if (extension == 1) places = fm.readJson(file);
+        else if (extension == 2) places = fm.readCsv(file);
 
         return places;
     }
