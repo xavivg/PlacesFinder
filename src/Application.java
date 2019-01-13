@@ -7,20 +7,21 @@ public class Application {
     ArrayList<Place> places;
     Boolean fileLoaded = false;
 
+    /**
+     *
+     */
     protected void init() {
-        try {
-            System.out.println("Welcome to my app!");
 
-            int option = 0;
+        System.out.println("Welcome to my app!");
 
-            while (option != 3) {
-                option = Menu.showMenu();
-                checkOption(option);
-            }
+        int option = 0;
 
-        } catch (Exception e) {
-            System.out.println("Algo salió mal...");
+        while (option != 3) {
+            option = Menu.showMenu();
+            checkOption(option);
         }
+
+
     }
 
     protected void checkOption(int option) {
