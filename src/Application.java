@@ -52,6 +52,9 @@ public class Application {
                     System.out.println("No se pueden mostrar estadisticas sin cargar primero el archivo");
                 }
                 break;
+            case 3:
+                System.out.println("Hasta luego!");
+                break;
         }
     }
 

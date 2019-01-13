@@ -53,7 +53,7 @@ public class Stats {
             type = "restaurant";
         }
 
-        System.out.println(type);
+        System.out.println("El tipo de local con locales más abiertos es : "+type);
     }
 
     /**
@@ -78,11 +78,11 @@ public class Stats {
 
         Place p = places.get(0);
 
-       System.out.println(p.toString());
-
         Place p1 = places.get(places.size()-1);
 
-        System.out.println(p.toString());
+        System.out.println("El local con la mejor reputación es: "+p.toString());
+
+        System.out.println("El local con la peor reputación es: "+p1.toString());
 
     }
 
