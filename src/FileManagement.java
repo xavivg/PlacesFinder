@@ -56,11 +56,9 @@ public class FileManagement {
                     Integer price = jobject.get("price_level").getAsInt();
                     places.add(new Restaurant(address, name, rating, open, type, price));
                 }
-                else{
+                else {
                     places.add(new Place(address, name, rating, open, type));
                 }
-
-                System.out.println(open);
             }
 
         }
@@ -68,6 +66,7 @@ public class FileManagement {
             System.out.println("Error!"+e);
         }
 
+        System.out.println("Fichero JSON cargado correctamente!");
         return places;
     }
 
@@ -100,7 +99,7 @@ public class FileManagement {
                 places.add(p);
             }
         }
-
+        System.out.println("Fichero csv cargado correctamente!");
         return places;
     }
 }

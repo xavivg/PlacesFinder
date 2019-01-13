@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 public class Stats {
 
     protected static void showPlacesAlphabetically(ArrayList<Place> places) {
@@ -54,6 +55,55 @@ public class Stats {
         }
 
         System.out.println(type);
+    }
+    protected static void showBestPlacesBetterFirst(ArrayList<Place> places) {
+        Collections.sort(places, Comparator.comparing(Place::getRating).reversed());
+
+        for (Place p : places) {
+            System.out.println("Nombre: " + p.getName());
+            System.out.println("Dirección: " + p.getAddress());
+            System.out.println("Valoración: " + p.getRating());
+            System.out.println("Abierto: " + p.isOpen());
+            System.out.println("Tipo: " + p.getType());
+            System.out.println("---------------------");
+        }
+        Place r = new Restaurant();
+    }
+    protected static void showBestPlaceAndTheWorst(ArrayList<Place> places) {
+        Collections.sort(places, Comparator.comparing(Place::getRating).reversed());
+
+        Place p = places.get(0);
+
+        System.out.println("Nombre: " + p.getName());
+        System.out.println("Dirección: " + p.getAddress());
+        System.out.println("Valoración: " + p.getRating());
+        System.out.println("Abierto: " + p.isOpen());
+        System.out.println("Tipo: " + p.getType());
+        System.out.println("---------------------");
+
+        Place p1 = places.get(places.size()-1);
+
+        System.out.println("Nombre: " + p1.getName());
+        System.out.println("Dirección: " + p1.getAddress());
+        System.out.println("Valoración: " + p1.getRating());
+        System.out.println("Abierto: " + p1.isOpen());
+        System.out.println("Tipo: " + p1.getType());
+        System.out.println("---------------------");
+
+    }
+
+    protected static void showRestaurantAverageRating(ArrayList<Place> places) {
+
+        double av = 0;
+        double count = 0;
+        for (Place p : places) {
+            if (p.getClass() == Restaurant.class) {
+                av += p.getRating();
+                count++;
+            }
+        }
+        av = (double) Math.round((av/count) * 100) / 100;
+        System.out.println("La media de la valoración de los restaurantes es de: "+av);
     }
 
     protected static void restaurantsPrice(ArrayList<Place> places) {

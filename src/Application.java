@@ -7,9 +7,7 @@ public class Application {
     ArrayList<Place> places;
 
     protected void init() {
-
         try {
-
             System.out.println("Welcome to my app!");
 
             int option = 0;
@@ -35,6 +33,8 @@ public class Application {
                 System.out.println("Opcion 2, Estadísticas");
                 checkStatsOption(Menu.statsMenu());
 
+            case 3:
+                System.out.println("Hasta otra!");
         }
     }
 
@@ -44,10 +44,19 @@ public class Application {
 
             case 1:
                 Stats.showPlacesAlphabetically(places);
-
+                break;
+            case 2:
+                Stats.showBestPlacesBetterFirst(places);
+                break;
             case 3:
                 Stats.typeMorePlacesOpen(places);
-
+                break;
+            case 4:
+                Stats.showBestPlaceAndTheWorst(places);
+                break;
+            case 5:
+                Stats.showRestaurantAverageRating(places);
+                break;
             case 6:
                 Stats.restaurantsPrice(places);
         }
