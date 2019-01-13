@@ -5,21 +5,10 @@ public class Stats {
 
     protected static void showPlacesAlphabetically(ArrayList<Place> places) {
 
-        /*Comparator<Place> cmp = new Comparator<Place>() {
-            public int compare(Place o1, Place o2) {
-                return o1.getName().compareTo(o2.getName());
-            }
-        };*/
-
         Collections.sort(places, Comparator.comparing(Place::getName));
 
         for (Place p : places) {
-            System.out.println("Nombre: " + p.getName());
-            System.out.println("Dirección: " + p.getAddress());
-            System.out.println("Valoración: " + p.getRating());
-            System.out.println("Abierto: " + p.isOpen());
-            System.out.println("Tipo: " + p.getType());
-            System.out.println("---------------------");
+            System.out.println(p.toString());
         }
     }
 
@@ -56,38 +45,25 @@ public class Stats {
 
         System.out.println(type);
     }
+
     protected static void showBestPlacesBetterFirst(ArrayList<Place> places) {
         Collections.sort(places, Comparator.comparing(Place::getRating).reversed());
 
         for (Place p : places) {
-            System.out.println("Nombre: " + p.getName());
-            System.out.println("Dirección: " + p.getAddress());
-            System.out.println("Valoración: " + p.getRating());
-            System.out.println("Abierto: " + p.isOpen());
-            System.out.println("Tipo: " + p.getType());
-            System.out.println("---------------------");
+            System.out.println(p.toString());
         }
     }
+
     protected static void showBestPlaceAndTheWorst(ArrayList<Place> places) {
         Collections.sort(places, Comparator.comparing(Place::getRating).reversed());
 
         Place p = places.get(0);
 
-        System.out.println("Nombre: " + p.getName());
-        System.out.println("Dirección: " + p.getAddress());
-        System.out.println("Valoración: " + p.getRating());
-        System.out.println("Abierto: " + p.isOpen());
-        System.out.println("Tipo: " + p.getType());
-        System.out.println("---------------------");
+       System.out.println(p.toString());
 
         Place p1 = places.get(places.size()-1);
 
-        System.out.println("Nombre: " + p1.getName());
-        System.out.println("Dirección: " + p1.getAddress());
-        System.out.println("Valoración: " + p1.getRating());
-        System.out.println("Abierto: " + p1.isOpen());
-        System.out.println("Tipo: " + p1.getType());
-        System.out.println("---------------------");
+        System.out.println(p.toString());
 
     }
 

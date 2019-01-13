@@ -15,7 +15,7 @@ public class Application {
 
             while (option != 3) {
                 option = Menu.showMenu();
-                checkoption(option);
+                checkOption(option);
             }
 
         } catch (Exception e) {
@@ -23,7 +23,7 @@ public class Application {
         }
     }
 
-    protected void checkoption(int option) {
+    protected void checkOption(int option) {
         switch (option){
             case 1:
                 System.out.println("Opcion 1, Cargar fichero");
@@ -45,9 +45,7 @@ public class Application {
                 else{
                     System.out.println("No se pueden mostrar estadisticas sin cargar primero el archivo");
                 }
-
-            case 3:
-                System.out.println("Hasta otra!");
+                break;
         }
     }
 
@@ -72,6 +70,7 @@ public class Application {
                 break;
             case 6:
                 Stats.restaurantsPrice(places);
+                break;
         }
     }
 

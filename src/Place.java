@@ -60,4 +60,13 @@ public class Place {
     protected int getPrice() {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + this.name +
+                ", Dirección: " + this.address +
+                ", Valoración: " + this.rating +
+                ", Abierto: " + this.open +
+                ", Tipo: " + this.type;
+    }
 }
