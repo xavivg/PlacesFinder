@@ -5,6 +5,10 @@ import java.util.ArrayList;
 
 public class FileManagement implements ReadFile{
 
+    /**
+     * @param name Rep el nom del fitxer
+     * @return Retorna integer en clau segons l'extencio del fitxer.
+     */
     public int checkExtension(String name){
         try{
             String[] parts = name.split("[.]");
@@ -19,6 +23,10 @@ public class FileManagement implements ReadFile{
         return 0;
     }
 
+    /**
+     * @param file Rep el nom del fitxer
+     * @return Retorna l'array de Places amb tota la informació del JSON insertada en l'arraylist.
+     */
     public ArrayList<Place> readJson(String file) {
 
         System.out.println("Cargando fichero json...");
@@ -74,12 +82,16 @@ public class FileManagement implements ReadFile{
         return places;
     }
 
+    /**
+     * @param file Rep el nom del fitxer
+     * @return Retorna l'array de Places amb tota la informació del CSV insertada en l'arraylist.
+     */
     public ArrayList<Place> readCsv(String file){
 
         System.out.println("Cargando fichero csv...");
         ArrayList<Place> places = new ArrayList<>();
         try{
-            FileReader fileReader = new FileReader(file);
+            FileReader fileReader = new FileReader("datasets/"+file);
             BufferedReader br = new BufferedReader(fileReader);
             br.readLine(); //nos saltamos la primera linea
             String line;

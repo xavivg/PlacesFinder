@@ -8,7 +8,7 @@ public class Application {
     Boolean fileLoaded = false;
 
     /**
-     *
+     * Funció que inicia el programa.
      */
     protected void init() {
 
@@ -24,6 +24,11 @@ public class Application {
 
     }
 
+    /**
+     * @param option
+     * Envia a la funció corresponent segons la opció rebuda.Menú principal
+     *
+     */
     protected void checkOption(int option) {
         switch (option){
             case 1:
@@ -50,6 +55,10 @@ public class Application {
         }
     }
 
+    /**
+     * @param option
+     * Envia a la funció corresponent segons la opció rebuda.Menú Estadisticas
+     */
     protected void checkStatsOption(int option) {
 
         switch (option) {
@@ -75,6 +84,11 @@ public class Application {
         }
     }
 
+    /**
+     * @return
+     * Crida a la funció per saber quina extensió té l'arxiu. Segons el integer que retorna es crida una funció o una altre.
+     * Retorna l'array de Places.
+     */
     protected ArrayList<Place> loadFile() {
 
         ArrayList<Place> places = new ArrayList<>();

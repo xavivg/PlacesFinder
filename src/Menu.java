@@ -3,6 +3,10 @@ import java.util.Scanner;
 
 public class Menu {
 
+    /**
+     * @return
+     * Mostra el menú i crida a la funció de demanar opció. El numero d'opcions es 3.
+     * */
     protected static int showMenu() {
 
         System.out.println("-- Place Finder --");
@@ -13,6 +17,10 @@ public class Menu {
         return scanOption(3);
     }
 
+    /**
+     * @return
+     * Mostra el menú Estaditiques i crida a la funció de demanar opció. El numero d'opcions màximes es 6.
+     */
     protected static int statsMenu() {
 
         System.out.println("-- Estadísticas --");
@@ -26,6 +34,10 @@ public class Menu {
         return scanOption(6);
     }
 
+    /**
+     * @param max Es refereix al numero màxim d'opcions del menú
+     * @return Retorna l'opció escrita per l'usuari
+     */
     private static int scanOption(int max) {
 
         Scanner scanner = new Scanner(System.in);

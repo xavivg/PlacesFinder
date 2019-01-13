@@ -3,6 +3,11 @@ import java.util.*;
 
 public class Stats {
 
+    /**
+     * @param places Array d'informació
+     * Mostrar locales alfabéticamente: muestra todos los locales en orden alfabético, de A
+     * a Z. Se debe mostrar toda la información de cada local.
+     */
     protected static void showPlacesAlphabetically(ArrayList<Place> places) {
 
         Collections.sort(places, Comparator.comparing(Place::getName));
@@ -12,6 +17,11 @@ public class Stats {
         }
     }
 
+    /**
+     * @param places Array d'informació
+     * . Mejor valorados: muestra, independientemente del tipo de local, los locales de mejor
+     * a peor valorados
+     */
     protected static void typeMorePlacesOpen(ArrayList<Place> places) {
 
         Map<String, Integer> types = new HashMap<>();
@@ -46,6 +56,11 @@ public class Stats {
         System.out.println(type);
     }
 
+    /**
+     * @param places Array d'informació
+     * Tipo con más locales abiertos: Muestra el tipo de local del que hay más locales
+     * abiertos
+     */
     protected static void showBestPlacesBetterFirst(ArrayList<Place> places) {
         Collections.sort(places, Comparator.comparing(Place::getRating).reversed());
 
@@ -54,6 +69,10 @@ public class Stats {
         }
     }
 
+    /**
+     * @param places Array d'informació
+     *  Mejor y peor valorado: Muestra el local mejor y peor valorado por pantalla.
+     */
     protected static void showBestPlaceAndTheWorst(ArrayList<Place> places) {
         Collections.sort(places, Comparator.comparing(Place::getRating).reversed());
 
@@ -67,6 +86,11 @@ public class Stats {
 
     }
 
+    /**
+     * @param places Array d'informació
+     * Valoración media restaurantes: muestra el valor medio de las puntuaciones de los
+     * restaurantes encontrados por pantalla.
+     */
     protected static void showRestaurantAverageRating(ArrayList<Place> places) {
 
         double av = 0;
@@ -81,6 +105,11 @@ public class Stats {
         System.out.println("La media de la valoración de los restaurantes es de: "+av);
     }
 
+    /**
+     * @param places Array d'informació
+     *  Precio restaurantes: muestra la cantidad de restaurantes que hay para cada nivel de
+     * precio (1 - Barato, 2 - moderado, 3 - caro, 4 - muy caro)
+     */
     protected static void restaurantsPrice(ArrayList<Place> places) {
 
         int[] prices = {0,0,0,0};

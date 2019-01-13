@@ -6,10 +6,10 @@ public class Place {
     private boolean open;
     private String type;
 
-    public Place() {
+    protected Place() {
     }
 
-    public Place(String address, String name, double rating, boolean open, String type) {
+    protected Place(String address, String name, double rating, boolean open, String type) {
         this.address = address;
         this.name = name;
         this.rating = rating;
@@ -17,43 +17,43 @@ public class Place {
         this.type = type;
     }
 
-    public String getAddress() {
+    protected String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    protected void setAddress(String address) {
         this.address = address;
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
-    public double getRating() {
+    protected double getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
+    protected void setRating(double rating) {
         this.rating = rating;
     }
 
-    public boolean isOpen() {
+    protected boolean isOpen() {
         return open;
     }
 
-    public void setOpen(boolean open) {
+    protected void setOpen(boolean open) {
         this.open = open;
     }
 
-    public String getType() {
+    protected String getType() {
         return type;
     }
 
-    public void setType(String type) {
+    protected void setType(String type) {
         this.type = type;
     }
 
